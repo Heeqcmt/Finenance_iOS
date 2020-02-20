@@ -23,7 +23,7 @@ struct Summary: View {
                     
                 List {
                 /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Content@*/Text("Content")/*@END_MENU_TOKEN@*/
-                }.frame( height: metrics.size.height*0.7 )
+                }.frame( height: metrics.size.height*0.6 )
                     .offset(y:-100)
                     
                 HStack(spacing:100){

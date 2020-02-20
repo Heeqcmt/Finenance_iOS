@@ -8,9 +8,31 @@
 
 import SwiftUI
 
+class checkUser : ObservableObject{
+    @Published var checked = false
+}
+
 struct Landing: View {
+    
+    @ObservedObject var check = checkUser();
     var body: some View {
-        NavigationView {
+        
+        VStack{
+        if(check.checked == false){
+            LoginView(check:check)
+        }else
+        {
+            MainSelection()
+        }
+        }
+    }
+}
+
+struct LoginView : View
+{
+    @ObservedObject var check = checkUser();
+    var body: some View {
+       
             VStack {
                 Text("Finenance")
                     .font(.largeTitle)
@@ -27,10 +49,12 @@ struct Landing: View {
                     .fontWeight(.regular)
                     .foregroundColor(Color.orange)
                 
-                NavigationLink("Start", destination: MainSelection())
-                
-            }
+                Button(action: {self.check.checked = true}) {
+                Text("Start")
+                }
         }
+                
+          
     }
 }
 
