@@ -13,82 +13,84 @@ class checkUser : ObservableObject{
 }
 
 struct Landing: View {
-    
-    
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: Couple.entity(), sortDescriptors: []) var couple : FetchedResults<Couple>;
     @ObservedObject var check = checkUser();
+    var count = 0;
+    @State var name = "You";
+    @State var CPname = "Your Partner";
+    
     var body: some View {
         
         VStack{
         if(check.checked == false){
-            LoginView(check:check)
-        }else
-        {
+            
+            
+            VStack {
+                Text("Finenance")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(Color.orange)
+                    .multilineTextAlignment(.center)
+                
+                //check if there is a couple in the system
+                if(couple.count<2)
+                {
+                        //if not ask user to input one
+                    TextField("Your name", text: $name)
+                        .foregroundColor(Color.orange)
+                        .multilineTextAlignment(.center)
+                    
+                    TextField("Your partner's names", text: $CPname)
+                        .foregroundColor(Color.orange)
+                        .multilineTextAlignment(.center)
+                    
+                    Button(action: {
+                        //save your name
+                        let person = Couple(context:self.moc)
+                        person.name = self.name
+                        person.tab = 0
+                        try? self.moc.save()
+                        //save partner name
+                        person.name = self.CPname
+                        try? self.moc.save()
+                        self.check.checked = true
+                    }) {
+                    Text("Next")
+                    }
+                    
+                    
+                    
+                }
+                //if yes display names
+                else
+                {
+                    VStack {
+                        Text(couple[0].name ?? "Unknow")
+                            .foregroundColor(Color.orange)
+                        Text(couple[1].name ?? "Unknow")
+                            .foregroundColor(Color.orange)
+                        
+                        Button(action:{self.check.checked = true}) {
+                        Text("Start")
+                        }
+                    }
+                    
+                }
+                
+                
+                
+                
+            }
+            
+        }else{
             MainSelection()
         }
         }
     }
+
 }
 
-struct LoginView : View
-{
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Couple.entity(), sortDescriptors: [])var couples:FetchedResults<Couple>
-    @ObservedObject var check = checkUser()
-    @State private var nameA: String
-    @State private var nameB: String
-    
-    var body: some View {
-       
-            VStack {
-                //title
-                Text("Finenance")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.orange)
-                    .multilineTextAlignment(.center)
-                
-                
-                //if(couples.count<2)
-                //{
-                    //if there are no previous users or enough users in the system 
-                    TextField("Person A",text: $nameA)
-                        .multilineTextAlignment(.center)
-                TextField("Person B", text: $nameB)
-                        .multilineTextAlignment(.center)
-                    Button(action: {
-                        let newCoupleA = Couple(context: self.moc)
-                        let newCoupleB = Couple(context: self.moc)
-                        newCoupleA.name = self.nameA
-                        newCoupleA.tab = 0
-                        newCoupleB.name = self.nameB
-                        newCoupleB.tab = 0
-                        
-                    }) {
-                        Text("Next")
-                }
-                    
-//                }else
-//                {
-//                    Text(couples[0].name ?? "Unknow")
-//                        .font(.title)
-//                        .fontWeight(.regular)
-//                        .foregroundColor(Color.orange)
-//
-//                    Text(couples[1].name ?? "Unknow")
-//                        .font(.title)
-//                        .fontWeight(.regular)
-//                        .foregroundColor(Color.orange)
-//                    Button(action: {self.check.checked = true}) {
-//                    Text("Start")
-//                    }
-//
-//                }
-                
-        }
-                
-          
-    }
-}
 
 struct Landing_Preview: PreviewProvider {
     static var previews: some View {

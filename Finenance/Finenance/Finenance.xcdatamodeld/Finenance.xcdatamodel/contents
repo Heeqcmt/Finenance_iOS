@@ -4,7 +4,13 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="tab" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
     </entity>
+    <entity name="SpentItems" representedClassName="SpentItems" syncable="YES" codeGenerationType="class">
+        <attribute name="cost" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="paidBy" optional="YES"/>
+    </entity>
     <elements>
-        <element name="Couple" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Couple" positionX="-63" positionY="-18" width="159.74609375" height="73"/>
+        <element name="SpentItems" positionX="162.87109375" positionY="-49.50390625" width="128" height="88"/>
     </elements>
 </model>
