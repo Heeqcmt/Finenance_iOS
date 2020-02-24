@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		EB5AB8E523F652100021A267 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AB8E423F652100021A267 /* AppDelegate.swift */; };
 		EB5AB8E723F652100021A267 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AB8E623F652100021A267 /* SceneDelegate.swift */; };
-		EB5AB8EA23F652100021A267 /* Finenance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB5AB8E823F652100021A267 /* Finenance.xcdatamodeld */; };
 		EB5AB8EC23F652100021A267 /* Landing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5AB8EB23F652100021A267 /* Landing.swift */; };
 		EB5AB8EE23F652130021A267 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5AB8ED23F652130021A267 /* Assets.xcassets */; };
 		EB5AB8F123F652130021A267 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5AB8F023F652130021A267 /* Preview Assets.xcassets */; };
 		EB5AB8F423F652130021A267 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5AB8F223F652130021A267 /* LaunchScreen.storyboard */; };
-		EB5AB8FF23F6552B0021A267 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5AB8FE23F6552B0021A267 /* Main.storyboard */; };
+		EB79379324036E75009D4362 /* Finenance.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = EB79379224036E75009D4362 /* Finenance.xcdatamodel */; };
 		EBCFCF3223F7A796003091A6 /* Tracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFCF3123F7A796003091A6 /* Tracking.swift */; };
 		EBCFCF3423FB82DF003091A6 /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFCF3323FB82DF003091A6 /* Summary.swift */; };
 		EBCFCF3623FB8375003091A6 /* MainSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFCF3523FB8375003091A6 /* MainSelection.swift */; };
@@ -24,13 +23,12 @@
 		EB5AB8E123F652100021A267 /* Finenance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finenance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5AB8E423F652100021A267 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB5AB8E623F652100021A267 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EB5AB8E923F652100021A267 /* Finenance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Finenance.xcdatamodel; sourceTree = "<group>"; };
 		EB5AB8EB23F652100021A267 /* Landing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landing.swift; sourceTree = "<group>"; };
 		EB5AB8ED23F652130021A267 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB5AB8F023F652130021A267 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EB5AB8F323F652130021A267 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB5AB8F523F652130021A267 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB5AB8FE23F6552B0021A267 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EB79379224036E75009D4362 /* Finenance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Finenance.xcdatamodel; path = Finenance.xcdatamodeld/Finenance.xcdatamodel; sourceTree = "<group>"; };
 		EBCFCF3123F7A796003091A6 /* Tracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracking.swift; sourceTree = "<group>"; };
 		EBCFCF3323FB82DF003091A6 /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
 		EBCFCF3523FB8375003091A6 /* MainSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSelection.swift; sourceTree = "<group>"; };
@@ -70,8 +68,8 @@
 				EB5AB8FC23F654EF0021A267 /* Scenes */,
 				EB5AB8FB23F654CB0021A267 /* ViewControlls */,
 				EB5AB8ED23F652130021A267 /* Assets.xcassets */,
+				EB79379224036E75009D4362 /* Finenance.xcdatamodel */,
 				EB5AB8F523F652130021A267 /* Info.plist */,
-				EB5AB8E823F652100021A267 /* Finenance.xcdatamodeld */,
 				EB5AB8EF23F652130021A267 /* Preview Content */,
 			);
 			path = Finenance;
@@ -100,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				EB5AB8F223F652130021A267 /* LaunchScreen.storyboard */,
-				EB5AB8FE23F6552B0021A267 /* Main.storyboard */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -175,7 +172,6 @@
 				EB5AB8F423F652130021A267 /* LaunchScreen.storyboard in Resources */,
 				EB5AB8F123F652130021A267 /* Preview Assets.xcassets in Resources */,
 				EB5AB8EE23F652130021A267 /* Assets.xcassets in Resources */,
-				EB5AB8FF23F6552B0021A267 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,12 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB79379324036E75009D4362 /* Finenance.xcdatamodel in Sources */,
 				EBCFCF3223F7A796003091A6 /* Tracking.swift in Sources */,
 				EB5AB8E523F652100021A267 /* AppDelegate.swift in Sources */,
 				EB5AB8E723F652100021A267 /* SceneDelegate.swift in Sources */,
 				EB5AB8EC23F652100021A267 /* Landing.swift in Sources */,
 				EBCFCF3423FB82DF003091A6 /* Summary.swift in Sources */,
-				EB5AB8EA23F652100021A267 /* Finenance.xcdatamodeld in Sources */,
 				EBCFCF3623FB8375003091A6 /* MainSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,19 +382,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		EB5AB8E823F652100021A267 /* Finenance.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				EB5AB8E923F652100021A267 /* Finenance.xcdatamodel */,
-			);
-			currentVersion = EB5AB8E923F652100021A267 /* Finenance.xcdatamodel */;
-			path = Finenance.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = EB5AB8D923F652100021A267 /* Project object */;
 }
