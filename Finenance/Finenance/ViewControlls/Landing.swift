@@ -7,12 +7,17 @@
 //
 
 import SwiftUI
+import CoreData
 
 class checkUser : ObservableObject{
     @Published var checked = false
 }
 
+
 struct Landing: View {
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(entity: User.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)]) var users: FetchedResults<User>
     
     @ObservedObject var check = checkUser();
     var body: some View {
