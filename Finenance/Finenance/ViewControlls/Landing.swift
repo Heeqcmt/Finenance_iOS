@@ -16,9 +16,9 @@ struct Landing: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: Couple.entity(), sortDescriptors: []) var couple : FetchedResults<Couple>;
     @ObservedObject var check = checkUser();
-    var count = 0;
-    @State var name = "You";
-    @State var CPname = "Your Partner";
+   
+    @State var name = "";
+    @State var CPname = "";
     
     var body: some View {
         

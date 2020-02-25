@@ -9,40 +9,59 @@
 import SwiftUI
 
 struct MainSelection: View {
+    
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: SpentItems.entity(), sortDescriptors: [
+        NSSortDescriptor(keyPath:\SpentItems.date, ascending:false)]) var items : FetchedResults<SpentItems>
+    
     var body: some View {
         
         NavigationView{
-        VStack {
-            Text("Recent Spending")
-                .font(.largeTitle)
-                .fontWeight(.black)
-                .frame(height:5)
-                .padding(.top,-75)
-                
-            List {
-            /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Content@*/Text("Content")/*@END_MENU_TOKEN@*/
-            }
-                
             
-            HStack(spacing: 100.0){
-            
-                
-                
-                NavigationLink("Tracking",destination: Tracking())
-        
-                NavigationLink("Summary", destination: Summary())
+            VStack{
+                List{
+                    
+                    ForEach(items, id:\.id)
+                    {
+                        item in
+                        Text(item.desc ?? "Unknow")
+                            
                         
+                        
+                        
+                    }
+                    
                 
-            }.frame(height:100)
+                }
+                
+                
+                NavigationLink("Tracking", destination: Tracking())
+                
+                Button(action:{
+                    let newItem = SpentItems(context:self.moc)
+                    newItem.id = UUID()
+                    newItem.desc = "testing1"
+                    newItem.cost = "1234"
+                    newItem.paidBy = "me"
+                    newItem.date = Date()
+                    
+                    try? self.moc.save()
+                })
+                {
+                    Text("Tester")
+                }
+                
+                
+                           
+            }.navigationBarTitle(Text("Expanses"))
             
-            
-          
-            
+           
         }
         
     }
-    }
 }
+
+
 
 struct MainSelection_Previews: PreviewProvider {
     static var previews: some View {
