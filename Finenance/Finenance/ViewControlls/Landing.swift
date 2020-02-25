@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 class checkUser : ObservableObject{
     @Published var checked = false
@@ -37,27 +38,27 @@ struct Landing: View {
                 if(couple.count<2)
                 {
                         //if not ask user to input one
-                    TextField("Your name", text: $name)
-                        .foregroundColor(Color.orange)
-                        .multilineTextAlignment(.center)
-                    
-                    TextField("Your partner's names", text: $CPname)
-                        .foregroundColor(Color.orange)
-                        .multilineTextAlignment(.center)
-                    
-                    Button(action: {
-                        //save your name
-                        let person = Couple(context:self.moc)
-                        person.name = self.name
-                        person.tab = 0
-                        try? self.moc.save()
-                        //save partner name
-                        person.name = self.CPname
-                        try? self.moc.save()
-                        self.check.checked = true
-                    }) {
-                    Text("Next")
+                    HStack {
+                        TextField("Your name", text: $name)
+                            .foregroundColor(Color.orange)
+                            .multilineTextAlignment(.center)
+                        
+                        Button(action:{saveUser(userName: self.name,moc: self.moc)}) {
+                        Text("Submit")
+                        }
                     }
+                    
+                    HStack {
+                        TextField("Your partner's name", text: $CPname)
+                            .foregroundColor(Color.orange)
+                            .multilineTextAlignment(.center)
+                        
+                        Button(action:{saveUser(userName: self.CPname,moc: self.moc)}) {
+                        Text("Submit")
+                        }
+                    }
+                    
+                  
                     
                     
                     
@@ -89,6 +90,15 @@ struct Landing: View {
         }
     }
 
+}
+
+//save the user name
+func saveUser (userName:String, moc : NSManagedObjectContext)
+{
+    let person = Couple(context:moc)
+    person.name = userName
+    person.tab = 0
+    try? moc.save()
 }
 
 
