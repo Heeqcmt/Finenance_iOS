@@ -24,31 +24,21 @@ struct MainSelection: View {
                     ForEach(items, id:\.id)
                     {
                         item in
-                        Text(item.desc ?? "Unknow")
-                            
+                        HStack{
+                            Text(item.desc ?? "Unknow")
+                            Text(item.cost ?? "Unknow")
+                            Text(item.paidBy ?? "Unknow")
                         
-                        
+                        }
                         
                     }
                     
                 
                 }
                 
-                
+                HStack{
                 NavigationLink("Tracking", destination: Tracking())
-                
-                Button(action:{
-                    let newItem = SpentItems(context:self.moc)
-                    newItem.id = UUID()
-                    newItem.desc = "testing1"
-                    newItem.cost = "1234"
-                    newItem.paidBy = "me"
-                    newItem.date = Date()
-                    
-                    try? self.moc.save()
-                })
-                {
-                    Text("Tester")
+                    NavigationLink("Summary", destination:Summary())
                 }
                 
                 
@@ -63,8 +53,11 @@ struct MainSelection: View {
 
 
 
+   #if DEBUG
 struct MainSelection_Previews: PreviewProvider {
     static var previews: some View {
-        MainSelection()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return MainSelection().environment(\.managedObjectContext, context)
     }
 }
+#endif

@@ -9,35 +9,23 @@
 import SwiftUI
 
 struct Summary: View {
+    
+    @FetchRequest(entity: Couple.entity(), sortDescriptors: []) var couples : FetchedResults<Couple>
     var body: some View {
-        
-        GeometryReader{ metrics in
-        NavigationView{
         VStack
             {
-                Text("Spending Summary")
-                    .font(.largeTitle)
-                    .frame(height: metrics.size.height*0.15)
-                    .offset(y:-50)
-                    
-                    
-                List {
-                /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Content@*/Text("Content")/*@END_MENU_TOKEN@*/
-                }.frame( height: metrics.size.height*0.6 )
-                    .offset(y:-100)
-                    
-                HStack(spacing:100){
-                    NavigationLink("Home",destination: Landing())
-                        .navigationBarBackButtonHidden(true)
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                Text("Reset")
-                }.frame(height: metrics.size.height*0.15)
-                    
+                ForEach (couples, id: \.id)
+                {
+                    cp in
+                    HStack{
+                        Text(cp.name ?? "unknown" )
+                        Text(cp.tab ?? "unknow")
+                    }
                 }
         }
+   
     }
-    }
-    }
+    
 }
 
 struct Summary_Previews: PreviewProvider {

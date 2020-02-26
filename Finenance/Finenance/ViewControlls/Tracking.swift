@@ -45,33 +45,53 @@ struct Tracking: View {
                     Text("Spliting the bill?")
                     
                 }
-//
-//                if isSplit
-//                {
-//
-//
-//
-//
-//
-//                    if (paidBy == 1)
-//                    {
-//                        HStack{
-//                        TextField("how much is " + (couple[0].name ?? "Unknow") + " paying", text: $tabAmount)
-//                            .textFieldStyle(PlainTextFieldStyle())
-//                        Button(action: {
-//
-//                        }) {
-//                        Text("Track Tab")
-//                        }
-//                        }
-//
-//
-//                    }else
-//                    {
-//                        Text("how much is " + (couple[1].name ?? "Unknow") + " paying")
-//                    }
-//
-//                }
+
+                if isSplit
+                {
+
+
+
+
+
+                    if (paidBy == 1)
+                    {
+                        HStack{
+                        TextField("how much is " + (couple[0].name ?? "Unknow") + " paying", text: $tabAmount)
+                            .textFieldStyle(PlainTextFieldStyle())
+                        Button(action: {
+                            let oldTab = Decimal(string :self.couple[0].tab ?? "0") ?? 0
+                            let newTab = Decimal(string :self.tabAmount ) ?? 0
+                            let total = oldTab + newTab
+                            self.couple[0].tab = "\(total)"
+                            
+                            try? self.moc.save()
+                        }) {
+                        Text("Track Tab")
+                        }
+                        }
+
+
+                    }else
+                    {
+                        HStack{
+                        TextField("how much is " + (couple[1].name ?? "Unknow") + " paying", text: $tabAmount)
+                            .textFieldStyle(PlainTextFieldStyle())
+                        Button(action: {
+                             let oldTab = Decimal(string :self.couple[1].tab ?? "0") ?? 0
+                                                       let newTab = Decimal(string :self.tabAmount ) ?? 0
+                                                       let total = oldTab + newTab
+                                                       self.couple[1].tab = "\(total)"
+                            
+                            try? self.moc.save()
+                        }) {
+                        Text("Track Tab")
+                        }
+                        }
+                    }
+                    
+                    
+                    
+                }
                 
                 
                 Button(action: {
@@ -96,8 +116,11 @@ struct Tracking: View {
     }
 }
 
+   #if DEBUG
 struct Tracking_Previews: PreviewProvider {
     static var previews: some View {
-        Tracking()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return Tracking().environment(\.managedObjectContext, context)
     }
 }
+#endif

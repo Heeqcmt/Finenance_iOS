@@ -14,8 +14,11 @@ class checkUser : ObservableObject{
 }
 
 struct Landing: View {
+    
+ 
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: Couple.entity(), sortDescriptors: []) var couple : FetchedResults<Couple>;
+  
     @ObservedObject var check = checkUser();
    
     @State var name = "";
@@ -35,6 +38,7 @@ struct Landing: View {
                     .multilineTextAlignment(.center)
                 
                 //check if there is a couple in the system
+            
                 if(couple.count<2)
                 {
                         //if not ask user to input one
@@ -96,14 +100,17 @@ struct Landing: View {
 func saveUser (userName:String, moc : NSManagedObjectContext)
 {
     let person = Couple(context:moc)
+    person.id = UUID()
     person.name = userName
-    person.tab = 0
+    person.tab =  ""
     try? moc.save()
 }
 
 
-struct Landing_Preview: PreviewProvider {
+   
+struct Landing_Previews: PreviewProvider {
     static var previews: some View {
-        Landing()
+       Landing()
     }
 }
+
