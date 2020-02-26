@@ -9,43 +9,55 @@
 import SwiftUI
 
 struct MainSelection: View {
+    
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: SpentItems.entity(), sortDescriptors: [
+        NSSortDescriptor(keyPath:\SpentItems.date, ascending:false)]) var items : FetchedResults<SpentItems>
+    
     var body: some View {
         
         NavigationView{
-        VStack {
-            Text("Recent Spending")
-                .font(.largeTitle)
-                .fontWeight(.black)
-                .frame(height:5)
-                .padding(.top,-75)
-                
-            List {
-            /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Content@*/Text("Content")/*@END_MENU_TOKEN@*/
-            }
-                
             
-            HStack(spacing: 100.0){
-            
-                
-                
-                NavigationLink("Tracking",destination: Tracking())
-        
-                NavigationLink("Summary", destination: Summary())
+            VStack{
+                List{
+                    
+                    ForEach(items, id:\.id)
+                    {
+                        item in
+                        HStack{
+                            Text(item.desc ?? "Unknow")
+                            Text(item.cost ?? "Unknow")
+                            Text(item.paidBy ?? "Unknow")
                         
+                        }
+                        
+                    }
+                    
                 
-            }.frame(height:100)
+                }
+                
+                HStack{
+                NavigationLink("Tracking", destination: Tracking())
+                    NavigationLink("Summary", destination:Summary())
+                }
+                
+                
+                           
+            }.navigationBarTitle(Text("Expanses"))
             
-            
-          
-            
+           
         }
         
     }
-    }
 }
 
+
+
+   #if DEBUG
 struct MainSelection_Previews: PreviewProvider {
     static var previews: some View {
-        MainSelection()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return MainSelection().environment(\.managedObjectContext, context)
     }
 }
+#endif

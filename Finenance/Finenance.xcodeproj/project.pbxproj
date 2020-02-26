@@ -87,9 +87,9 @@
 			isa = PBXGroup;
 			children = (
 				EB5AB8EB23F652100021A267 /* Landing.swift */,
+				EBCFCF3523FB8375003091A6 /* MainSelection.swift */,
 				EBCFCF3323FB82DF003091A6 /* Summary.swift */,
 				EBCFCF3123F7A796003091A6 /* Tracking.swift */,
-				EBCFCF3523FB8375003091A6 /* MainSelection.swift */,
 			);
 			path = ViewControlls;
 			sourceTree = "<group>";
