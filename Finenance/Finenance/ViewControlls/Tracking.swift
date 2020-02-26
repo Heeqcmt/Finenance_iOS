@@ -16,6 +16,7 @@ class LineItem : ObservableObject
 
 struct Tracking: View {
     
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: Couple.entity(), sortDescriptors: []) var couple : FetchedResults<Couple>
     @State private var description = ""
@@ -26,7 +27,8 @@ struct Tracking: View {
    
     
     var body: some View {
-        NavigationView{
+        
+       
             Form{
                 
                 TextField("What did you spend the money on", text: $description)
@@ -83,6 +85,7 @@ struct Tracking: View {
                                                        self.couple[1].tab = "\(total)"
                             
                             try? self.moc.save()
+                            
                         }) {
                         Text("Track Tab")
                         }
@@ -102,6 +105,8 @@ struct Tracking: View {
                     lineItem.date = Date()
                     lineItem.id = UUID()
                     try? self.moc.save()
+                    self.mode.wrappedValue.dismiss()
+                    
                     
                 }) {
                                Text("Track Purchase")
@@ -110,11 +115,12 @@ struct Tracking: View {
                
             }.navigationBarTitle(Text("Tracking Expense"))
             
-            
+        
+        
+      
         }
-            
     }
-}
+
 
    #if DEBUG
 struct Tracking_Previews: PreviewProvider {
