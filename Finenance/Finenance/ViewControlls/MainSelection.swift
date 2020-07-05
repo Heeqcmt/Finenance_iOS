@@ -20,14 +20,20 @@ struct MainSelection: View {
             
             VStack{
                 List{
+                    HStack{
+                        Text("Item").frame(maxWidth:.infinity)
+                        Text("Amount").frame(maxWidth:.infinity)
+                        Text("Paid By").frame(maxWidth:.infinity)
+                                
+                    }
                     
                     ForEach(items, id:\.id)
                     {
                         item in
                         HStack{
-                            Text(item.desc ?? "Unknow")
-                            Text(item.cost ?? "Unknow")
-                            Text(item.paidBy ?? "Unknow")
+                            Text(item.desc ?? "Unknow").frame(maxWidth:.infinity)
+                            Text(item.cost ?? "Unknow").frame(maxWidth:.infinity)
+                            Text(item.paidBy ?? "Unknow").frame(maxWidth:.infinity)
                         
                         }
                         
@@ -37,13 +43,21 @@ struct MainSelection: View {
                 }
                 
                 HStack{
-                NavigationLink("Tracking", destination: Tracking())
-                    NavigationLink("Summary", destination:Summary())
+                    NavigationLink(destination: Tracking())
+                    {
+                        button(name:"Tracking")
+                            .frame(maxWidth:.infinity)
+                    }
+                    NavigationLink(destination:Summary())
+                    {
+                        button(name:"Summary")
+                            .frame(maxWidth:.infinity)
+                    }
                 }
                 
                 
                            
-            }.navigationBarTitle(Text("Expanses"))
+            }.navigationBarTitle(Text("Expenses"))
             
            
         }

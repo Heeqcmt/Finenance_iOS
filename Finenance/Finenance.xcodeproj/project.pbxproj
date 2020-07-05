@@ -13,6 +13,7 @@
 		EB5AB8EE23F652130021A267 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5AB8ED23F652130021A267 /* Assets.xcassets */; };
 		EB5AB8F123F652130021A267 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5AB8F023F652130021A267 /* Preview Assets.xcassets */; };
 		EB5AB8F423F652130021A267 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5AB8F223F652130021A267 /* LaunchScreen.storyboard */; };
+		EB702B0924B17B3700B4D86C /* button.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB702B0824B17B3700B4D86C /* button.swift */; };
 		EB79379324036E75009D4362 /* Finenance.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = EB79379224036E75009D4362 /* Finenance.xcdatamodel */; };
 		EBCFCF3223F7A796003091A6 /* Tracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFCF3123F7A796003091A6 /* Tracking.swift */; };
 		EBCFCF3423FB82DF003091A6 /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCFCF3323FB82DF003091A6 /* Summary.swift */; };
@@ -28,6 +29,7 @@
 		EB5AB8F023F652130021A267 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EB5AB8F323F652130021A267 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB5AB8F523F652130021A267 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB702B0824B17B3700B4D86C /* button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = button.swift; sourceTree = "<group>"; };
 		EB79379224036E75009D4362 /* Finenance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Finenance.xcdatamodel; path = Finenance.xcdatamodeld/Finenance.xcdatamodel; sourceTree = "<group>"; };
 		EBCFCF3123F7A796003091A6 /* Tracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracking.swift; sourceTree = "<group>"; };
 		EBCFCF3323FB82DF003091A6 /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				EBCFCF3523FB8375003091A6 /* MainSelection.swift */,
 				EBCFCF3323FB82DF003091A6 /* Summary.swift */,
 				EBCFCF3123F7A796003091A6 /* Tracking.swift */,
+				EB702B0724B17B0E00B4D86C /* elements */,
 			);
 			path = ViewControlls;
 			sourceTree = "<group>";
@@ -109,6 +112,14 @@
 				EB5AB8E423F652100021A267 /* AppDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		EB702B0724B17B0E00B4D86C /* elements */ = {
+			isa = PBXGroup;
+			children = (
+				EB702B0824B17B3700B4D86C /* button.swift */,
+			);
+			path = elements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +196,7 @@
 				EB79379324036E75009D4362 /* Finenance.xcdatamodel in Sources */,
 				EBCFCF3223F7A796003091A6 /* Tracking.swift in Sources */,
 				EB5AB8E523F652100021A267 /* AppDelegate.swift in Sources */,
+				EB702B0924B17B3700B4D86C /* button.swift in Sources */,
 				EB5AB8E723F652100021A267 /* SceneDelegate.swift in Sources */,
 				EB5AB8EC23F652100021A267 /* Landing.swift in Sources */,
 				EBCFCF3423FB82DF003091A6 /* Summary.swift in Sources */,
