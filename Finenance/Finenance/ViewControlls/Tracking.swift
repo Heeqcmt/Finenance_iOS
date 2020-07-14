@@ -28,7 +28,7 @@ struct Tracking: View {
     
     var body: some View {
         
-       
+        VStack{
             Form{
                 
                 TextField("What did you spend the money on", text: $description)
@@ -50,11 +50,6 @@ struct Tracking: View {
 
                 if isSplit
                 {
-
-
-
-
-
                     if (paidBy == 1)
                     {
                         HStack{
@@ -67,10 +62,12 @@ struct Tracking: View {
                             self.couple[0].tab = "\(total)"
                             
                             try? self.moc.save()
+                            self.isSplit = false
                         }) {
-                        Text("Track Tab")
+                            button(name:"Track Tab")
                         }
                         }
+                        
 
 
                     }else
@@ -85,9 +82,10 @@ struct Tracking: View {
                                                        self.couple[1].tab = "\(total)"
                             
                             try? self.moc.save()
+                            self.isSplit = false
                             
                         }) {
-                        Text("Track Tab")
+                            button(name:"Track Tab")
                         }
                         }
                     }
@@ -97,23 +95,26 @@ struct Tracking: View {
                 }
                 
                 
-                Button(action: {
-                    let lineItem = SpentItems(context:self.moc)
-                    lineItem.desc = self.description
-                    lineItem.cost = self.amount
-                    lineItem.paidBy = self.couple[self.paidBy].name ?? "Unknow"
-                    lineItem.date = Date()
-                    lineItem.id = UUID()
-                    try? self.moc.save()
-                    self.mode.wrappedValue.dismiss()
-                    
-                    
-                }) {
-                               Text("Track Purchase")
-                               
-                               }
                
-            }.navigationBarTitle(Text("Tracking Expense"))
+            }
+
+            Button(action: {
+                let lineItem = SpentItems(context:self.moc)
+                lineItem.desc = self.description
+                lineItem.cost = self.amount
+                lineItem.paidBy = self.couple[self.paidBy].name ?? "Unknow"
+                lineItem.date = Date()
+                lineItem.id = UUID()
+                try? self.moc.save()
+                self.mode.wrappedValue.dismiss()
+                
+                
+            }) {
+                button(name:"Track Purchase")
+                           
+                           }
+            
+        }.navigationBarTitle(Text("Tracking Expense"))
             
         
         

@@ -36,6 +36,7 @@ struct Landing: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color.orange)
                     .multilineTextAlignment(.center)
+                    .padding()
                 
                 //check if there is a couple in the system
             
@@ -48,7 +49,8 @@ struct Landing: View {
                             .multilineTextAlignment(.center)
                         
                         Button(action:{saveUser(userName: self.name,moc: self.moc)}) {
-                        Text("Submit")
+                            button(name:"Submit")
+                                
                         }
                     }
                     
@@ -58,9 +60,9 @@ struct Landing: View {
                             .multilineTextAlignment(.center)
                         
                         Button(action:{saveUser(userName: self.CPname,moc: self.moc)}) {
-                        Text("Submit")
+                        button(name:"Submit")
                         }
-                    }
+                    }.padding()
                     
                   
                     
@@ -77,9 +79,9 @@ struct Landing: View {
                             .foregroundColor(Color.orange)
                         
                         Button(action:{self.check.checked = true}) {
-                        Text("Start")
-                        }
-                    }
+                            button(name:"start")
+                        }.padding()
+                    }.padding()
                     
                 }
                 
@@ -110,7 +112,8 @@ func saveUser (userName:String, moc : NSManagedObjectContext)
    
 struct Landing_Previews: PreviewProvider {
     static var previews: some View {
-       Landing()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+              return Landing().environment(\.managedObjectContext, context)
     }
 }
 

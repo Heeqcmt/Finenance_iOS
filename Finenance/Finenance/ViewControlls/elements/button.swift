@@ -13,17 +13,19 @@ struct button: View {
     var name:String
     var body: some View {
         Text(name)
-        .fontWeight(.bold)
-    
-        .padding()
-        .background(Color.orange)
-        .cornerRadius(5)
-        .foregroundColor(.white)
+        .fontWeight(.heavy)
         .padding(5)
+        .background(Color.orange)
+        .cornerRadius(40)
+        .foregroundColor(.white)
+        .frame(height:.some(25))
+        .padding(10)
         .overlay(
-            RoundedRectangle(cornerRadius: 5)
+            RoundedRectangle(cornerRadius: 40)
                 .stroke(Color.orange, lineWidth: 5)
+            
         )
+        
     
     
     }

@@ -15,13 +15,21 @@ struct Summary: View {
     var body: some View {
         VStack
             {
+                List{
+                    
+                    HStack
+                        {
+                            Text("Name").frame(maxWidth:.infinity)
+                            Text("Owning").frame(maxWidth:.infinity)
+                    }
                 ForEach (couples, id: \.id)
                 {
                     cp in
                     HStack{
-                        Text(cp.name ?? "unknown" )
-                        Text(cp.tab ?? "unknow")
+                        Text(cp.name ?? "unknown").frame(maxWidth:.infinity)
+                        Text(cp.tab ?? "unknow").frame(maxWidth:.infinity)
                     }
+                }
                 }
                 
                 Button(action:{
@@ -40,7 +48,7 @@ struct Summary: View {
                     
                 })
                 {
-                    Text("Reset")
+                    button(name:"reset")
                 }
                 
                 
@@ -56,6 +64,7 @@ struct Summary: View {
 
 struct Summary_Previews: PreviewProvider {
     static var previews: some View {
-        Summary()
+         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+               return Summary().environment(\.managedObjectContext, context)
     }
 }
