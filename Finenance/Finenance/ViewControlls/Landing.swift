@@ -36,7 +36,7 @@ struct Landing: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color.orange)
                     .multilineTextAlignment(.center)
-                    .padding()
+                    
                 
                 //check if there is a couple in the system
             
@@ -52,7 +52,7 @@ struct Landing: View {
                             button(name:"Submit")
                                 
                         }
-                    }
+                    }.padding()
                     
                     HStack {
                         TextField("Your partner's name", text: $CPname)
