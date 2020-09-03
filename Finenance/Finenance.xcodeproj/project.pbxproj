@@ -13,6 +13,7 @@
 		EB5AB8EE23F652130021A267 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5AB8ED23F652130021A267 /* Assets.xcassets */; };
 		EB5AB8F123F652130021A267 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5AB8F023F652130021A267 /* Preview Assets.xcassets */; };
 		EB5AB8F423F652130021A267 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5AB8F223F652130021A267 /* LaunchScreen.storyboard */; };
+		EB6810032501A32800A6FADF /* currencyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6810022501A32800A6FADF /* currencyField.swift */; };
 		EB702B0924B17B3700B4D86C /* button.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB702B0824B17B3700B4D86C /* button.swift */; };
 		EB702B0B24BE533200B4D86C /* titleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB702B0A24BE533200B4D86C /* titleText.swift */; };
 		EB79379324036E75009D4362 /* Finenance.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = EB79379224036E75009D4362 /* Finenance.xcdatamodel */; };
@@ -30,6 +31,7 @@
 		EB5AB8F023F652130021A267 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EB5AB8F323F652130021A267 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB5AB8F523F652130021A267 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB6810022501A32800A6FADF /* currencyField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currencyField.swift; sourceTree = "<group>"; };
 		EB702B0824B17B3700B4D86C /* button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = button.swift; sourceTree = "<group>"; };
 		EB702B0A24BE533200B4D86C /* titleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = titleText.swift; sourceTree = "<group>"; };
 		EB79379224036E75009D4362 /* Finenance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Finenance.xcdatamodel; path = Finenance.xcdatamodeld/Finenance.xcdatamodel; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				EB702B0824B17B3700B4D86C /* button.swift */,
 				EB702B0A24BE533200B4D86C /* titleText.swift */,
+				EB6810022501A32800A6FADF /* currencyField.swift */,
 			);
 			path = elements;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				EB79379324036E75009D4362 /* Finenance.xcdatamodel in Sources */,
 				EBCFCF3223F7A796003091A6 /* Tracking.swift in Sources */,
 				EB5AB8E523F652100021A267 /* AppDelegate.swift in Sources */,
+				EB6810032501A32800A6FADF /* currencyField.swift in Sources */,
 				EB702B0924B17B3700B4D86C /* button.swift in Sources */,
 				EB702B0B24BE533200B4D86C /* titleText.swift in Sources */,
 				EB5AB8E723F652100021A267 /* SceneDelegate.swift in Sources */,

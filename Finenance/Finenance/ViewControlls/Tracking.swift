@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 class LineItem : ObservableObject
 {
@@ -33,8 +34,8 @@ struct Tracking: View {
                 
                 TextField("What did you spend the money on", text: $description)
                     .textFieldStyle(PlainTextFieldStyle())
-                TextField("How much did you spend?", text:$amount)
-                    .textFieldStyle(PlainTextFieldStyle())
+                currencyField(amount: $amount, name:"you")
+                
                 Picker(selection: $paidBy, label: Text("Who paid for it")) {
                     ForEach(0..<couple.count)
                     {
@@ -53,8 +54,8 @@ struct Tracking: View {
                     if (paidBy == 1)
                     {
                         HStack{
-                        TextField("how much is " + (couple[0].name ?? "Unknow") + " paying", text: $tabAmount)
-                            .textFieldStyle(PlainTextFieldStyle())
+                        
+                        currencyField(amount:$tabAmount,name:couple[0].name ?? "name")
                         Button(action: {
                             let oldTab = Decimal(string :self.couple[0].tab ?? "0") ?? 0
                             let newTab = Decimal(string :self.tabAmount ) ?? 0
@@ -73,8 +74,7 @@ struct Tracking: View {
                     }else
                     {
                         HStack{
-                        TextField("how much is " + (couple[1].name ?? "Unknow") + " paying", text: $tabAmount)
-                            .textFieldStyle(PlainTextFieldStyle())
+                        currencyField(amount:$tabAmount,name:couple[1].name ?? "name")
                         Button(action: {
                              let oldTab = Decimal(string :self.couple[1].tab ?? "0") ?? 0
                                                        let newTab = Decimal(string :self.tabAmount ) ?? 0
